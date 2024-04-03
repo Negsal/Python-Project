@@ -1,0 +1,65 @@
+import matplotlib.pyplot as plt
+
+# Task 1: Calculate the average, largest, and smallest elements with a Bar Plot
+list_num = []
+while True:
+    num = input("Enter a number (Enter 'done' to finish): ")
+    if num == "done":
+        break
+    list_num.append(int(num))
+
+if len(list_num) == 0:
+    print("No numbers entered.")
+else:
+    maximum = max(list_num)
+    minimum = min(list_num)
+    average = sum(list_num) / len(list_num)
+    print("Maximum =", maximum, "  Minimum =", minimum, "  Average =", average)
+
+    # Creating a bar plot
+    labels = ['Maximum', 'Minimum', 'Average']
+    values = [maximum, minimum, average]
+    plt.figure(figsize=(8, 6))
+    plt.bar(labels, values, color='skyblue')
+    plt.xlabel('Statistics')
+    plt.ylabel('Values')
+    plt.title('Statistics of Entered Numbers')
+    plt.show()
+
+# Task 2: Count the number of repetitions of a word in a string with a Pie Chart
+string = input("Enter a string: ")
+word = input("Enter a word to count: ")
+
+list_string = string.split()
+count = list_string.count(word)
+
+print("The number of repetitions of the word '" + word + "':", count)
+
+# Creating a pie chart
+labels = ['Word Occurrences', 'Other Words']
+sizes = [count, len(list_string) - count]
+plt.figure(figsize=(8, 6))
+plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
+plt.title('Word Occurrences in String')
+plt.show()
+
+# Task 3: Calculate the sum of a list of numbers with a Line Plot
+list_num = []
+while True:
+    num = input("Enter a number (Enter 'done' to finish): ")
+    if num == "done":
+        break
+    list_num.append(int(num))
+
+sum_num = sum(list_num)
+print("Sum of the numbers:", sum_num)
+
+# Creating a line plot
+x_values = range(1, len(list_num) + 1)
+plt.figure(figsize=(8, 6))
+plt.plot(x_values, list_num, marker='o', color='green', linestyle='-', linewidth=2)
+plt.xlabel('Number Index')
+plt.ylabel('Number Value')
+plt.title('Sum of Entered Numbers')
+plt.grid(True)
+plt.show()
